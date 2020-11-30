@@ -66,7 +66,6 @@
      </div>
      <!-- Intro Slide -->
      <div class="slide" style="display: block;" id="s1">
-        <audio autoplay><source src="slide1.m4a" type="audio/mp4" /></audio>
        <center>
          <h1 class="no-whitespace">The Joplin Tornado</h1>
          <img src="https://images.csmonitor.com/csmarchives/2011/05/MIDWEST_STORMS_14966583.JPG?alias=standard_900x600nc" style="padding-top: 1em;"/>
@@ -273,6 +272,11 @@
              </pre>
          </div>
    </body>
+   <script>
+      window.addEventListener("load", function(e){
+         document.body.innerHTML += "<audio autoplay><source src='slide1.mp4' type='audio/mp4' /></audio>";
+      });
+   </script>
    <script>
        document.body.addEventListener("click", function(e){
            document.getElementById("s" + window.currentSlide).style.display = "none";
