@@ -66,6 +66,7 @@
      </div>
      <!-- Intro Slide -->
      <div class="slide" style="display: block;" id="s1">
+        <audio autoplay><source src="slide1.mp4" type="audio/mp4" /></audio>
        <center>
          <h1 class="no-whitespace">The Joplin Tornado</h1>
          <img src="https://images.csmonitor.com/csmarchives/2011/05/MIDWEST_STORMS_14966583.JPG?alias=standard_900x600nc" style="padding-top: 1em;"/>
@@ -276,9 +277,16 @@
        document.body.addEventListener("click", function(e){
            document.getElementById("s" + window.currentSlide).style.display = "none";
            window.currentSlide += 1;
+           var audio = document.getElementsByTagName("audio");
+          if(audio.length >= 1){
+           for(var i = 0; i < audio.length; i++){
+              audio[i].remove();
+           }
+          }
            var nextSlide = document.getElementById("s" + currentSlide);
            if(nextSlide != null){
                nextSlide.style.display = "block";
+              document.body.innerHTML += "<audio autoplay><source src='slide" + currentSlide + ".mp4' type='audio/mp4' /></audio>";
            }else{
                alert("You have reached the end of the presentation. Thank you for watching!");
                window.close();
